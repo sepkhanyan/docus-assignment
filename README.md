@@ -10,6 +10,8 @@ This is a web application with user authentication and authorization based on ro
 
 `cd <new created directory>`
 
+`cp .env.example .env` // after that please configure .env file
+
 `composer install`
 
 `php artisan breeze:install`
@@ -29,8 +31,6 @@ This is a web application with user authentication and authorization based on ro
 `php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider"`
 
 `php artisan migrate`
-
-`open config/app.php file and add service provider and aliase`
 
 `npm install`
 
