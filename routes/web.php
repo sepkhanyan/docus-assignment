@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PermissionsController;
+use App\Http\Controllers\RolesController;
+use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,5 +18,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [DashboardController::class, 'index'])->middleware(['auth'])->name('dashboard');
+Route::group(['middleware' => 'auth'], function()
+{
+    Route::get('users/{name?}', [UsersController::class, 'index']);
+    Route::get('roles', [RolesController::class, 'index']);
+    Route::get('permissions', [PermissionsController::class, 'index']);
+});
 
 require __DIR__.'/auth.php';

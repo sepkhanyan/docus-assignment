@@ -11,14 +11,6 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $users = User::filter([]);
-        $roles = Role::all();
-        $permissions = Permission::all();
-
-        return view('dashboard', [
-            'users' => $users,
-            'roles' => $roles,
-            'permissions' => $permissions
-        ]);
+        return view('dashboard');
     }
 }
